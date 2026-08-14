@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESC - Escritório de Soluções Condominiais</title>
+<meta name="description" content="Administração condominial em Belém-PA. A ESC cuida da parte financeira, contábil e burocrática do seu condomínio, enquanto o síndico continua no comando.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #14213D;
+    --navy-2: #1D3461;
+    --ice: #F2F6FB;
+    --white: #FFFFFF;
+    --amber: #D9A441;
+    --amber-dark: #B9832F;
+    --ink: #1E2430;
+    --ink-soft: #4A5468;
+    --line: #DCE4EF;
+    --radius: 14px;
+    --maxw: 1180px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 .5em 0;
+    color: var(--navy);
+  }
+  p{ margin: 0 0 1em 0; }
+  a{ color: inherit; }
+  img{ max-width: 100%; display: block; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  :focus-visible{
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    gap: 24px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 1.4rem;
+    color: var(--navy);
+    letter-spacing: .01em;
+    white-space: nowrap;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-icon{
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+  .logo span{ color: var(--amber-dark); }
+  nav.links{
+    display:flex;
+    align-items:center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  nav.links a{
+    text-decoration:none;
+    font-weight: 500;
+    font-size: .96rem;
+    color: var(--ink-soft);
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.links a:hover{ color: var(--navy); border-color: var(--navy); }
+  nav.links a.current{ color: var(--navy); border-color: var(--amber); }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .95rem;
+    text-decoration:none;
+    border: 1.5px solid transparent;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor:pointer;
+  }
+  .btn-amber{
+    background: var(--amber);
+    color: var(--navy);
+    box-shadow: 0 2px 10px rgba(217,164,65,.35);
+  }
+  .btn-amber:hover{ background: var(--amber-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(217,164,65,.45); }
+  .btn-outline{
+    background: transparent;
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+  .btn-outline:hover{ background: var(--navy); color: var(--white); }
+  .btn-ghost-light{
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.55);
+    color: var(--white);
+  }
+  .btn-ghost-light:hover{ background: rgba(255,255,255,.22); }
+
+  .menu-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative;
+    min-height: 640px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    isolation: isolate;
+  }
+  .hero img.bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background: linear-gradient(100deg, rgba(20,33,61,.94) 0%, rgba(20,33,61,.86) 32%, rgba(20,33,61,.45) 58%, rgba(20,33,61,.15) 80%);
+  }
+  .hero-content{
+    max-width: 620px;
+    padding: 120px 24px 90px;
+    color: var(--white);
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    color: var(--white);
+    font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+    margin-bottom: .45em;
+  }
+  .hero p.lead{
+    font-size: 1.1rem;
+    color: rgba(255,255,255,.88);
+    max-width: 480px;
+    margin-bottom: 2em;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap: wrap; }
+
+  /* ---------- Sections ---------- */
+  section{ padding: 88px 0; }
+  .section-ice{ background: var(--ice); }
+  .kicker{
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 10px;
+    display:block;
+  }
+
+  .split{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items:start;
+  }
+  .split h2{ font-size: clamp(1.6rem, 2.6vw, 2.1rem); max-width: 420px; }
+  .split .lede{ font-size: 1.05rem; color: var(--ink-soft); max-width: 420px; }
+
+  .list-clean{ list-style:none; padding:0; margin: 28px 0 0 0; display:grid; gap: 18px; }
+  .list-clean li{
+    display:flex;
+    gap: 14px;
+    align-items:flex-start;
+    font-size: .98rem;
+    color: var(--ink);
+  }
+  .list-clean .dot{
+    flex: none;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    margin-top: 8px;
+  }
+
+  /* ---------- Cards (Por que a ESC) ---------- */
+  .cards-head{
+    text-align:center;
+    max-width: 640px;
+    margin: 0 auto 52px;
+  }
+  .cards-head h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  .cards{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .card{
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(20,33,61,.10); }
+  .card img{ width:100%; aspect-ratio: 4/3; object-fit: cover; }
+  .card-body{ padding: 24px 22px 28px; }
+  .card-num{
+    font-family:'Fraunces', serif;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--amber-dark);
+    margin-bottom: 8px;
+    letter-spacing: .04em;
+  }
+  .card h3{ font-size: 1.15rem; margin-bottom: .4em; }
+  .card p{ color: var(--ink-soft); font-size: .94rem; margin: 0; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 56px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .cta-band h2{ color: var(--white); font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin-bottom: .3em; max-width: 480px; }
+  .cta-band p{ color: rgba(255,255,255,.78); margin:0; max-width: 420px; }
+  .cta-actions{ display:flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    background: var(--navy);
+    padding: 56px 0 28px;
+    margin-top: 40px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,.14);
+  }
+  .footer-brand{ max-width: 460px; }
+  .footer-brand-line{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+  .footer-brand-line .logo-mark{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--white);
+  }
+  .footer-brand-line .logo-mark span{ color: var(--amber); }
+  .footer-text-stack{
+    display:flex;
+    flex-direction:column;
+    gap: 3px;
+  }
+  .footer-brand-line .footer-name{
+    font-size: .92rem;
+    color: rgba(255,255,255,.65);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .footer-slogan{
+    margin: 0;
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-size: .98rem;
+    color: var(--amber);
+    line-height: 1.3;
+  }
+  .footer-desc{
+    margin: 14px 0 0 0;
+    font-size: .88rem;
+    color: rgba(255,255,255,.55);
+  }
+  .footer-cols{ display:flex; gap: 56px; flex-wrap: wrap; }
+  .footer-col h4{
+    font-family:'Inter',sans-serif;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: rgba(255,255,255,.5);
+    margin: 0 0 14px 0;
+    font-weight:600;
+  }
+  .footer-col a{
+    display:block;
+    text-decoration:none;
+    color: rgba(255,255,255,.78);
+    font-size: .92rem;
+    margin-bottom: 10px;
+  }
+  .footer-col a:hover{ color: var(--amber); }
+  .footer-bottom{
+    padding-top: 20px;
+    font-size: .8rem;
+    color: rgba(255,255,255,.45);
+  }
+
+  @media (max-width: 880px){
+    .footer-brand-line .footer-name{ white-space: normal; }
+
+    .split{ grid-template-columns: 1fr; gap: 36px; }
+    .cards{ grid-template-columns: 1fr; }
+    nav.links{
+      position: fixed;
+      top: 68px; left:0; right:0;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      align-items:flex-start;
+      padding: 18px 24px 22px;
+      gap: 14px;
+      display:none;
+    }
+    nav.links.open{ display:flex; }
+    .menu-toggle{
+      display:inline-flex;
+      background:none;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor:pointer;
+    }
+    .nav-inner{ flex-wrap: wrap; }
+    .cta-band{ padding: 40px 28px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .card, .btn{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="assets/logo-icon.png" alt="Logo ESC" class="logo-icon"> ESC<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <nav class="links" id="navLinks">
+      <a href="index.html" class="current">Início</a>
+      <a href="quem-somos.html">Quem somos</a>
+      <a href="servicos.html">Nossos Serviços</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <a class="btn btn-amber" href="https://web.ucondo.com.br/mora.html?path=inicio.aspx&ct=1782408727808" target="_blank" rel="noopener">
+      Área do Condômino
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="bg" src="assets/hero-predio.jpg" alt="Prédios residenciais vistos a partir de uma área verde, em dia claro">
+  <div class="hero-content">
+    <span class="eyebrow">Administração Condominial</span>
+    <h1>Organização e clareza para o seu condomínio.</h1>
+    <p class="lead">Cuidamos da parte financeira, contábil e documental, com transparência do início ao fim.</p>
+    <div class="hero-actions">
+      <a href="contato.html" class="btn btn-amber">Solicitar Proposta</a>
+      <a href="servicos.html" class="btn btn-ghost-light">Ver o que fazemos</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="kicker">O que fazemos</span>
+      <h2>Organização financeira e documental, do jeito certo.</h2>
+      <p class="lede">Cuidamos da rotina administrativa do condomínio: prestação de contas, boletos, cobrança, folha de pagamento e obrigações legais.</p>
+    </div>
+    <div>
+      <p style="color:var(--ink-soft); font-size:1rem;">Relatórios claros, prazos em dia e comunicação constante, para você acompanhar tudo com simplicidade.</p>
+      <ul class="list-clean">
+        <li><span class="dot"></span> Prestação de contas mensal e fechamento contábil</li>
+        <li><span class="dot"></span> Emissão de boletos e controle de inadimplência</li>
+        <li><span class="dot"></span> Organização documental e suporte a assembleias</li>
+        <li><span class="dot"></span> Atendimento direto ao condômino, com app próprio</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="wrap">
+    <div class="cards-head">
+      <span class="kicker" style="text-align:center;">Por que a ESC</span>
+      <h2>Três coisas que mudam no dia a dia do seu condomínio</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img src="assets/card-experiencia.png" alt="Ilustração de profissional revisando relatórios financeiros, com prédios residenciais ao fundo">
+        <div class="card-body">
+          <div class="card-num">Experiência real</div>
+          <h3>Mais de 7 anos de prática</h3>
+          <p>Processos testados e ajustados no dia a dia da administração condominial em Belém, não na teoria.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/card-app.png" alt="Ilustração de mão segurando smartphone com aplicativo de contas e alertas do condomínio">
+        <div class="card-body">
+          <div class="card-num">App do morador</div>
+          <h3>Informação na mão do condômino</h3>
+          <p>Boletos, comunicados e histórico financeiro no celular, sem depender de portaria ou grupo de WhatsApp.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/card-atendimento.png" alt="Ilustração de duas pessoas conversando de forma próxima em ambiente profissional">
+        <div class="card-body">
+          <div class="card-num">Atendimento próximo</div>
+          <h3>Um contato direto, sempre</h3>
+          <p>Cada condomínio tem um ponto de contato real conosco, sem central de atendimento genérica.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Quer entender como funcionaria no seu condomínio?</h2>
+        <p>Preparamos uma proposta personalizada, sem compromisso.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contato.html" class="btn btn-amber">Falar com a ESC</a>
+        <a href="quem-somos.html" class="btn btn-ghost-light">Conhecer a ESC</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-line">
+          <span class="logo-mark">ESC<span>.</span></span>
+          <div class="footer-text-stack">
+            <span class="footer-name">Escritório de Soluções Condominiais</span>
+            <p class="footer-slogan">Seu condomínio em boas mãos.</p>
+          </div>
+        </div>
+        <p class="footer-desc">Administração financeira, contábil e documental para o seu condomínio.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="index.html">Início</a>
+          <a href="quem-somos.html">Quem somos</a>
+          <a href="servicos.html">Nossos Serviços</a>
+          <a href="contato.html">Contato</a>
+        </div>
+        <div class="footer-col">
+          <h4>Cliente</h4>
+          <a href="https://web.ucondo.com.br/mora.html?path=inicio.aspx&ct=1782408727808" target="_blank" rel="noopener">Área do Condômino</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ESC. Escritório de Soluções Condominiais</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+</body>
+</html>

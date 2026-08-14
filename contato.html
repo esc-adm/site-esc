@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato - ESC Escritório de Soluções Condominiais</title>
+<meta name="description" content="Fale com a ESC pelo WhatsApp ou solicite uma proposta personalizada para o seu condomínio em Belém-PA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #14213D;
+    --navy-2: #1D3461;
+    --ice: #F2F6FB;
+    --white: #FFFFFF;
+    --amber: #D9A441;
+    --amber-dark: #B9832F;
+    --whatsapp: #2FAE60;
+    --whatsapp-dark: #26934F;
+    --ink: #1E2430;
+    --ink-soft: #4A5468;
+    --line: #DCE4EF;
+    --radius: 14px;
+    --maxw: 1180px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 .5em 0;
+    color: var(--navy);
+  }
+  p{ margin: 0 0 1em 0; }
+  a{ color: inherit; }
+  img{ max-width: 100%; display: block; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  :focus-visible{
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    gap: 24px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 1.4rem;
+    color: var(--navy);
+    letter-spacing: .01em;
+    white-space: nowrap;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-icon{
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+  .logo span{ color: var(--amber-dark); }
+  nav.links{
+    display:flex;
+    align-items:center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  nav.links a{
+    text-decoration:none;
+    font-weight: 500;
+    font-size: .96rem;
+    color: var(--ink-soft);
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.links a:hover{ color: var(--navy); border-color: var(--navy); }
+  nav.links a.current{ color: var(--navy); border-color: var(--amber); }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .95rem;
+    text-decoration:none;
+    border: 1.5px solid transparent;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor:pointer;
+  }
+  .btn-amber{
+    background: var(--amber);
+    color: var(--navy);
+    box-shadow: 0 2px 10px rgba(217,164,65,.35);
+  }
+  .btn-amber:hover{ background: var(--amber-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(217,164,65,.45); }
+  .btn-whatsapp{
+    background: var(--whatsapp);
+    color: var(--white);
+    box-shadow: 0 2px 10px rgba(47,174,96,.35);
+  }
+  .btn-whatsapp:hover{ background: var(--whatsapp-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(47,174,96,.45); }
+  .btn-outline{
+    background: transparent;
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+  .btn-outline:hover{ background: var(--navy); color: var(--white); }
+  .btn-lg{ padding: 15px 26px; font-size: 1.02rem; }
+
+  .menu-toggle{ display:none; }
+
+  /* ---------- Page header band ---------- */
+  .page-header{
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--white);
+    padding: 96px 0 84px;
+  }
+  .page-header .eyebrow{
+    display:inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+  .page-header h1{
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    max-width: 640px;
+    margin-bottom: .4em;
+  }
+  .page-header p.lead{
+    font-size: 1.08rem;
+    color: rgba(255,255,255,.82);
+    max-width: 520px;
+    margin: 0;
+  }
+
+  /* ---------- Sections ---------- */
+  section{ padding: 88px 0; }
+  .kicker{
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 10px;
+    display:block;
+  }
+
+  /* ---------- Contact cards ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .contact-card{
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 44px 40px;
+    display:flex;
+    flex-direction:column;
+    gap: 18px;
+  }
+  .contact-card.primary{
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+  }
+  .contact-card.primary h2{ color: var(--white); }
+  .contact-card.primary p{ color: rgba(255,255,255,.78); }
+  .contact-card .icon-badge{
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(47,174,96,.15);
+    color: var(--whatsapp);
+  }
+  .contact-card.primary .icon-badge{
+    background: rgba(217,164,65,.18);
+    color: var(--amber);
+  }
+  .contact-card h2{ font-size: 1.4rem; margin-bottom:.1em; }
+  .contact-card p{ color: var(--ink-soft); font-size: .98rem; }
+  .contact-card .phone-display{
+    font-family:'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+  }
+  .contact-card .btn{ align-self:flex-start; margin-top: 6px; }
+
+  /* ---------- Info strip ---------- */
+  .info-strip{
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display:flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .info-item{ display:flex; align-items:flex-start; gap: 14px; max-width: 320px; }
+  .info-item .dot{
+    flex:none;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    margin-top: 8px;
+  }
+  .info-item h4{ font-size: .95rem; margin: 0 0 4px 0; color: var(--navy); font-family:'Inter',sans-serif; font-weight:600; }
+  .info-item p{ margin:0; font-size: .92rem; color: var(--ink-soft); }
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    background: var(--navy);
+    padding: 56px 0 28px;
+    margin-top: 40px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,.14);
+  }
+  .footer-brand{ max-width: 460px; }
+  .footer-brand-line{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+  .footer-brand-line .logo-mark{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--white);
+  }
+  .footer-brand-line .logo-mark span{ color: var(--amber); }
+  .footer-text-stack{
+    display:flex;
+    flex-direction:column;
+    gap: 3px;
+  }
+  .footer-brand-line .footer-name{
+    font-size: .92rem;
+    color: rgba(255,255,255,.65);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .footer-slogan{
+    margin: 0;
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-size: .98rem;
+    color: var(--amber);
+    line-height: 1.3;
+  }
+  .footer-desc{
+    margin: 14px 0 0 0;
+    font-size: .88rem;
+    color: rgba(255,255,255,.55);
+  }
+  .footer-cols{ display:flex; gap: 56px; flex-wrap: wrap; }
+  .footer-col h4{
+    font-family:'Inter',sans-serif;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: rgba(255,255,255,.5);
+    margin: 0 0 14px 0;
+    font-weight:600;
+  }
+  .footer-col a{
+    display:block;
+    text-decoration:none;
+    color: rgba(255,255,255,.78);
+    font-size: .92rem;
+    margin-bottom: 10px;
+  }
+  .footer-col a:hover{ color: var(--amber); }
+  .footer-bottom{
+    padding-top: 20px;
+    font-size: .8rem;
+    color: rgba(255,255,255,.45);
+  }
+
+  @media (max-width: 880px){
+    .footer-brand-line .footer-name{ white-space: normal; }
+
+    .contact-grid{ grid-template-columns: 1fr; }
+    .contact-card{ padding: 36px 28px; }
+    nav.links{
+      position: fixed;
+      top: 68px; left:0; right:0;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      align-items:flex-start;
+      padding: 18px 24px 22px;
+      gap: 14px;
+      display:none;
+    }
+    nav.links.open{ display:flex; }
+    .menu-toggle{
+      display:inline-flex;
+      background:none;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor:pointer;
+    }
+    .nav-inner{ flex-wrap: wrap; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .btn{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="assets/logo-icon.png" alt="Logo ESC" class="logo-icon"> ESC<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <nav class="links" id="navLinks">
+      <a href="index.html">Início</a>
+      <a href="quem-somos.html">Quem somos</a>
+      <a href="servicos.html">Nossos Serviços</a>
+      <a href="contato.html" class="current">Contato</a>
+    </nav>
+
+    <a class="btn btn-amber" href="https://web.ucondo.com.br/mora.html?path=inicio.aspx&ct=1782408727808" target="_blank" rel="noopener">
+      Área do Condômino
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+    </a>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Contato</span>
+    <h1>Vamos conversar sobre o seu condomínio.</h1>
+    <p class="lead">Escolha o caminho mais rápido pra você: resposta direta no WhatsApp ou uma proposta detalhada por formulário.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <article class="contact-card primary">
+        <div class="icon-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>
+        </div>
+        <h2>Solicitar proposta</h2>
+        <p>Conte um pouco sobre o seu condomínio e preparamos uma proposta sob medida, sem custo e sem compromisso.</p>
+        <a class="btn btn-amber btn-lg" href="https://forms.gle/fzy8aKg9wfTuuWkp6" target="_blank" rel="noopener">
+          Preencher formulário
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+      </article>
+
+      <article class="contact-card">
+        <div class="icon-badge">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor"><path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.35.66 4.54 1.8 6.41L4 29l7.76-1.75a11.94 11.94 0 004.25.78h.01c6.63 0 12.01-5.38 12.01-12.02C28.03 8.38 22.65 3 16.01 3zm7.03 17.03c-.3.84-1.5 1.55-2.44 1.75-.65.14-1.5.25-4.35-.93-3.65-1.51-6-5.2-6.18-5.44-.18-.24-1.47-1.96-1.47-3.74s.92-2.65 1.25-3.02c.3-.32.65-.4.87-.4.22 0 .43 0 .62.01.2.01.47-.08.73.56.3.73.99 2.51 1.08 2.69.09.18.15.4.03.64-.12.24-.18.4-.36.61-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.79-.09.22-.24.91-1.06 1.16-1.42.24-.36.48-.3.79-.18.32.12 2.03.96 2.38 1.13.35.18.58.27.66.42.09.16.09.9-.21 1.74z"/></svg>
+        </div>
+        <h2>Falar agora</h2>
+        <p>Prefere uma resposta rápida e direta? Chame a ESC no WhatsApp.</p>
+        <a class="btn btn-whatsapp btn-lg" href="https://wa.me/5591981506125" target="_blank" rel="noopener">
+          Abrir WhatsApp
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="info-strip">
+      <div class="info-item">
+        <span class="dot"></span>
+        <div>
+          <h4>Resposta</h4>
+          <p>Retornamos o contato em até 1 dia útil</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <span class="dot"></span>
+        <div>
+          <h4>Sem compromisso</h4>
+          <p>A proposta é gratuita e sem obrigação de contratação</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-line">
+          <span class="logo-mark">ESC<span>.</span></span>
+          <div class="footer-text-stack">
+            <span class="footer-name">Escritório de Soluções Condominiais</span>
+            <p class="footer-slogan">Seu condomínio em boas mãos.</p>
+          </div>
+        </div>
+        <p class="footer-desc">Administração financeira, contábil e documental para o seu condomínio.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="index.html">Início</a>
+          <a href="quem-somos.html">Quem somos</a>
+          <a href="servicos.html">Nossos Serviços</a>
+          <a href="contato.html">Contato</a>
+        </div>
+        <div class="footer-col">
+          <h4>Cliente</h4>
+          <a href="https://web.ucondo.com.br/mora.html?path=inicio.aspx&ct=1782408727808" target="_blank" rel="noopener">Área do Condômino</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ESC. Escritório de Soluções Condominiais</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+</body>
+</html>
