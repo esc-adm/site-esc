@@ -196,6 +196,16 @@
     color: var(--ink-soft);
     line-height: 1.75;
   }
+  .proximity-quote{
+    margin: 28px 0 0 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--amber);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--navy);
+    line-height: 1.5;
+  }
 
   /* ---------- Stat strip ---------- */
   .stats{
@@ -238,28 +248,29 @@
     display:grid;
     grid-template-columns: 1fr auto 1fr;
     gap: 40px;
-    text-align:left;
+    text-align:center;
   }
-  .mission-split .kicker{ text-align:left; }
-  .mission-split h2{ margin: 0; max-width: none; font-size: clamp(1.25rem, 2.2vw, 1.5rem); text-align:justify; }
-  .mission-col{ display:flex; flex-direction:column; justify-content:flex-start; }
+  .mission-split .kicker{ text-align:center; }
+  .mission-col{ display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
   .mission-divider{ width:1px; background: rgba(255,255,255,.18); align-self:stretch; }
 
-  .mission-split-3{ grid-template-columns: 1.3fr auto 1.3fr auto 0.8fr; }
-  .values-plain{
-    list-style:none;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    gap: 10px;
-  }
-  .values-plain li{
-    font-family:'Fraunces', serif;
-    font-size: 1.15rem;
-    font-weight:500;
+  .mission-split-3{ grid-template-columns: 1fr auto 1fr auto 1fr; }
+  .mission-highlight{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
     color: var(--white);
+    line-height: 1.35;
+    margin: 0 0 .6em 0;
   }
+  .mission-text{
+    font-size: .95rem;
+    color: rgba(255,255,255,.75);
+    line-height: 1.5;
+    margin: 0 0 .6em 0;
+  }
+  .mission-text strong{ color: var(--white); }
+  .mission-text:last-child{ margin-bottom: 0; }
   .value-text p{ color: var(--ink-soft); max-width: 620px; margin:0; }
 
   /* ---------- CTA band ---------- */
@@ -420,8 +431,8 @@
 <section class="page-header">
   <div class="wrap">
     <span class="eyebrow">Quem somos</span>
-    <h1>Da administração direta a uma estrutura própria.</h1>
-    <p class="lead">Conheça a forma de pensar por trás da ESC, e entenda por que ela nasceu da prática, não da teoria.</p>
+    <h1>Criada por quem vive a rotina do condomínio.</h1>
+    <p class="lead">Entenda como a ESC transformou a experiência prática em uma gestão profissional, eficiente e sem burocracia.</p>
   </div>
 </section>
 
@@ -429,25 +440,8 @@
   <div class="wrap">
     <div class="history-block">
       <span class="kicker">Nossa história</span>
-      <p class="justify-text">A ESC nasceu em 2020, pouco antes da pandemia, com uma proposta simples: ir até o condomínio, em vez de esperar o síndico vir até nós. Aquilo fez ainda mais sentido nos meses seguintes, quando sair de casa deixou de ser uma opção. Com o tempo, essa proximidade virou processo. Hoje a ESC é uma estrutura formal, com métodos padronizados e ferramentas próprias de acompanhamento, mas o jeito de trabalhar continua o mesmo: entender de perto a realidade de cada condomínio antes de propor qualquer solução.</p>
-    </div>
-
-    <div style="margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--line);">
-      <span class="kicker">Como pensamos</span>
-      <div class="stats" style="margin-top: 0; padding-top: 0; border-top: none;">
-        <div class="stat">
-          <h3 style="font-size:1.1rem; margin-bottom:.4em;">Transparência real</h3>
-          <div class="label">Não escondemos números. Mostramos o que está por trás de cada decisão financeira.</div>
-        </div>
-        <div class="stat">
-          <h3 style="font-size:1.1rem; margin-bottom:.4em;">Consistência</h3>
-          <div class="label">O mesmo processo, mês após mês, sem surpresas de última hora na prestação de contas.</div>
-        </div>
-        <div class="stat">
-          <h3 style="font-size:1.1rem; margin-bottom:.4em;">Cuidado com prazos legais</h3>
-          <div class="label">Acompanhamos de perto as obrigações fiscais e legais do condomínio, evitando multas e cobranças evitáveis por atraso ou esquecimento.</div>
-        </div>
-      </div>
+      <p class="justify-text">A ESC nasceu em 2020 com um princípio inegociável: ir até o condomínio, em vez de esperar que o síndico venha até nós. Entendemos desde o primeiro dia que a gestão condominial não acontece dentro de uma sala fechada, mas no dia a dia, na convivência e na rotina real dos moradores. Essa proximidade se provou ainda mais essencial durante a pandemia e moldou a forma como trabalhamos. Com o tempo, essa presença física virou método. Profissionalizamos a operação, desenvolvemos ferramentas próprias e estruturamos nossos processos. No entanto, a nossa essência permanece a mesma: estar perto para entender, vivenciar e resolver.</p>
+      <p class="proximity-quote">Proximidade não é um diferencial para nós. É a nossa forma de existir.</p>
     </div>
   </div>
 </section>
@@ -456,22 +450,22 @@
   <div class="wrap">
     <div class="mission-band mission-split mission-split-3">
       <div class="mission-col">
-        <span class="kicker">Missão</span>
-        <h2>Profissionalizar a gestão condominial em Belém, entregando transparência financeira e organização documental para que síndicos foquem no que importa: a qualidade de vida do condomínio.</h2>
+        <span class="kicker">Nosso Propósito</span>
+        <p class="mission-highlight">Organizar as contas e os documentos do seu condomínio para que você tenha paz de espírito.</p>
+        <p class="mission-text">Profissionalizamos a gestão condominial em Belém com transparência e processos claros, liberando o síndico para focar no bem-estar dos moradores.</p>
       </div>
       <div class="mission-divider"></div>
       <div class="mission-col">
-        <span class="kicker">Visão</span>
-        <h2>Ser reconhecida como referência em administração condominial no Pará, expandindo a mesma qualidade de gestão construída em Belém para outras cidades da região, sem abrir mão da proximidade que define o nosso trabalho.</h2>
+        <span class="kicker">Onde Queremos Chegar</span>
+        <p class="mission-highlight">Ser a principal referência em gestão condominial no Pará.</p>
+        <p class="mission-text">Expandir nosso padrão de excelência para outras cidades da região, garantindo crescimento sem perder o atendimento próximo e dedicado.</p>
       </div>
       <div class="mission-divider"></div>
       <div class="mission-col">
-        <span class="kicker">Valores</span>
-        <ul class="values-plain">
-          <li>Transparência</li>
-          <li>Autonomia do síndico</li>
-          <li>Proximidade</li>
-        </ul>
+        <span class="kicker">No Que Acreditamos</span>
+        <p class="mission-text"><strong>Transparência:</strong> Clareza total nas finanças e prestação de contas.</p>
+        <p class="mission-text"><strong>Parceria:</strong> Atuação lado a lado para apoiar cada decisão do síndico.</p>
+        <p class="mission-text"><strong>Compromisso:</strong> Responsabilidade e presença no dia a dia do condomínio.</p>
       </div>
     </div>
   </div>
