@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://script.google.com; base-uri 'self'; form-action 'self' https://script.google.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Solicitar Proposta - ESC Escritório de Soluções Condominiais</title>
+<meta name="description" content="Solicite uma proposta personalizada e gratuita para a administração do seu condomínio.">
+<style>
+  @font-face{ font-family:'Fraunces'; font-style:normal; font-weight:400; font-display:swap; src:url('assets/fonts/fraunces-400.woff2') format('woff2'); }
+  @font-face{ font-family:'Fraunces'; font-style:normal; font-weight:500; font-display:swap; src:url('assets/fonts/fraunces-500.woff2') format('woff2'); }
+  @font-face{ font-family:'Fraunces'; font-style:normal; font-weight:600; font-display:swap; src:url('assets/fonts/fraunces-600.woff2') format('woff2'); }
+  @font-face{ font-family:'Fraunces'; font-style:normal; font-weight:700; font-display:swap; src:url('assets/fonts/fraunces-700.woff2') format('woff2'); }
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:url('assets/fonts/inter-400.woff2') format('woff2'); }
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:500; font-display:swap; src:url('assets/fonts/inter-500.woff2') format('woff2'); }
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:600; font-display:swap; src:url('assets/fonts/inter-600.woff2') format('woff2'); }
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap; src:url('assets/fonts/inter-700.woff2') format('woff2'); }
+  :root{
+    --navy: #14213D;
+    --navy-2: #1D3461;
+    --ice: #F2F6FB;
+    --white: #FFFFFF;
+    --amber: #D9A441;
+    --amber-dark: #B9832F;
+    --whatsapp: #2FAE60;
+    --whatsapp-dark: #26934F;
+    --ink: #1E2430;
+    --ink-soft: #4A5468;
+    --line: #DCE4EF;
+    --radius: 14px;
+    --maxw: 1180px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 .5em 0;
+    color: var(--navy);
+  }
+  p{ margin: 0 0 1em 0; }
+  a{ color: inherit; }
+  img{ max-width: 100%; display: block; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  :focus-visible{
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    gap: 24px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 1.4rem;
+    color: var(--navy);
+    letter-spacing: .01em;
+    white-space: nowrap;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-icon{
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+  .logo span{ color: var(--amber-dark); }
+  nav.links{
+    display:flex;
+    align-items:center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  nav.links a{
+    text-decoration:none;
+    font-weight: 500;
+    font-size: .96rem;
+    color: var(--ink-soft);
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.links a:hover{ color: var(--navy); border-color: var(--navy); }
+  nav.links a.current{ color: var(--navy); border-color: var(--amber); }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .95rem;
+    text-decoration:none;
+    border: 1.5px solid transparent;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor:pointer;
+  }
+  .btn-amber{
+    background: var(--amber);
+    color: var(--navy);
+    box-shadow: 0 2px 10px rgba(217,164,65,.35);
+  }
+  .btn-amber:hover{ background: var(--amber-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(217,164,65,.45); }
+  .btn-whatsapp{
+    background: var(--whatsapp);
+    color: var(--white);
+    box-shadow: 0 2px 10px rgba(47,174,96,.35);
+  }
+  .btn-whatsapp:hover{ background: var(--whatsapp-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(47,174,96,.45); }
+  .btn-outline{
+    background: transparent;
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+  .btn-outline:hover{ background: var(--navy); color: var(--white); }
+  .btn-lg{ padding: 15px 26px; font-size: 1.02rem; }
+
+  .menu-toggle{ display:none; }
+
+  /* ---------- Page header band ---------- */
+  .page-header{
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--white);
+    padding: 96px 0 84px;
+  }
+  .page-header .eyebrow{
+    display:inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+  .page-header h1{
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    max-width: 640px;
+    margin-bottom: .4em;
+  }
+  .page-header p.lead{
+    font-size: 1.08rem;
+    color: rgba(255,255,255,.82);
+    max-width: 520px;
+    margin: 0;
+  }
+
+  /* ---------- Sections ---------- */
+  section{ padding: 88px 0; }
+  .kicker{
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 10px;
+    display:block;
+  }
+
+  /* ---------- Contact cards ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .contact-card{
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 44px 40px;
+    display:flex;
+    flex-direction:column;
+    gap: 18px;
+  }
+  .contact-card.primary{
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+  }
+  .contact-card.primary h2{ color: var(--white); }
+  .contact-card.primary p{ color: rgba(255,255,255,.78); }
+  .contact-card .icon-badge{
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(47,174,96,.15);
+    color: var(--whatsapp);
+  }
+  .contact-card.primary .icon-badge{
+    background: rgba(217,164,65,.18);
+    color: var(--amber);
+  }
+  .contact-card h2{ font-size: 1.4rem; margin-bottom:.1em; }
+  .contact-card p{ color: var(--ink-soft); font-size: .98rem; }
+  .contact-card .phone-display{
+    font-family:'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+  }
+  .contact-card .btn{ align-self:flex-start; margin-top: 6px; }
+
+  /* ---------- Info strip ---------- */
+  .info-strip{
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display:flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .info-item{ display:flex; align-items:flex-start; gap: 14px; max-width: 320px; }
+  .info-item .dot{
+    flex:none;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    margin-top: 8px;
+  }
+  .info-item h4{ font-size: .95rem; margin: 0 0 4px 0; color: var(--navy); font-family:'Inter',sans-serif; font-weight:600; }
+  .info-item p{ margin:0; font-size: .92rem; color: var(--ink-soft); }
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    background: var(--navy);
+    padding: 56px 0 28px;
+    margin-top: 40px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,.14);
+  }
+  .footer-brand{ max-width: 460px; }
+  .footer-brand-line{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+  .footer-brand-line .logo-mark{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--white);
+  }
+  .footer-brand-line .logo-mark span{ color: var(--amber); }
+  .footer-text-stack{
+    display:flex;
+    flex-direction:column;
+    gap: 3px;
+  }
+  .footer-brand-line .footer-name{
+    font-size: .92rem;
+    color: rgba(255,255,255,.65);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .footer-slogan{
+    margin: 0;
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-size: .98rem;
+    color: var(--amber);
+    line-height: 1.3;
+  }
+  .footer-desc{
+    margin: 14px 0 0 0;
+    font-size: .88rem;
+    color: rgba(255,255,255,.55);
+  }
+  .footer-cols{ display:flex; gap: 56px; flex-wrap: wrap; }
+  .footer-col h4{
+    font-family:'Inter',sans-serif;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: rgba(255,255,255,.5);
+    margin: 0 0 14px 0;
+    font-weight:600;
+  }
+  .footer-col a{
+    display:block;
+    text-decoration:none;
+    color: rgba(255,255,255,.78);
+    font-size: .92rem;
+    margin-bottom: 10px;
+  }
+  .footer-col a:hover{ color: var(--amber); }
+  .footer-bottom{
+    padding-top: 20px;
+    font-size: .8rem;
+    color: rgba(255,255,255,.45);
+  }
+
+  /* ---------- Proposal Wizard ---------- */
+  .wizard-wrap{ display:block; }
+  .wizard{
+    max-width: 720px;
+    margin: 40px auto 0;
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    padding: 44px 40px;
+  }
+  .wizard-progress{ display:flex; gap: 6px; margin-bottom: 32px; }
+  .wizard-progress .bar{ flex:1; height: 4px; border-radius: 2px; background: var(--line); overflow:hidden; }
+  .wizard-progress .bar.done{ background: var(--amber); }
+  .wizard-step-label{
+    font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--amber-dark); margin-bottom: 6px; display:block;
+  }
+  .wizard-field{ margin-bottom: 22px; }
+  .wizard-field label{ display:block; font-size: .92rem; font-weight: 600; color: var(--navy); margin-bottom: 7px; }
+  .wizard-field .hint{ font-size: .8rem; color: var(--ink-soft); margin-top: 4px; }
+  .wizard-field input[type="text"],
+  .wizard-field input[type="tel"],
+  .wizard-field input[type="email"],
+  .wizard-field select,
+  .wizard-field textarea{
+    width:100%; padding: 11px 14px; border: 1.5px solid var(--line); border-radius: 10px;
+    font-family:'Inter',sans-serif; font-size: .95rem; color: var(--ink); background: var(--white);
+    transition: border-color .15s ease;
+  }
+  .wizard-field select{
+    appearance:none; -webkit-appearance:none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A5468' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 40px; cursor:pointer;
+  }
+  .wizard-field input:focus, .wizard-field select:focus, .wizard-field textarea:focus{ outline:none; border-color: var(--amber); }
+  .wizard-field textarea{ min-height: 90px; resize: vertical; }
+  .wizard-option-list{ display:flex; flex-direction:column; gap: 10px; }
+  .wizard-option-item{
+    display:flex; align-items:flex-start; gap: 10px; padding: 12px 14px;
+    border: 1.5px solid var(--line); border-radius: 10px; cursor:pointer;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .wizard-option-item:hover{ border-color: var(--amber); }
+  .wizard-option-item.checked{ border-color: var(--amber); background: rgba(217,164,65,.06); }
+  .wizard-option-item input{ margin-top: 2px; accent-color: var(--amber); flex:none; }
+  .wizard-option-item span{ font-size: .93rem; color: var(--ink); }
+  .wizard-outro-input{ margin-top: 8px; margin-left: 26px; display:none; }
+  .wizard-outro-input.show{ display:block; }
+  .wizard-actions{ display:flex; justify-content:space-between; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .wizard-step{ display:none; }
+  .wizard-step.active{ display:block; }
+  .wizard-lgpd-box{
+    max-height: 260px; overflow-y: auto; padding: 16px 18px; background: var(--ice);
+    border-radius: 12px; font-size: .82rem; color: var(--ink-soft); line-height: 1.6;
+    margin-bottom: 20px; border: 1px solid var(--line);
+  }
+  .wizard-lgpd-box strong{ color: var(--navy); }
+  .wizard-success-box, .wizard-declined-box{ text-align:center; padding: 20px 0; }
+  .wizard-success-box .icon, .wizard-declined-box .icon{
+    width: 56px; height:56px; border-radius: 50%; display:flex; align-items:center; justify-content:center; margin: 0 auto 20px;
+  }
+  .wizard-success-box .icon{ background: rgba(47,174,96,.12); color:#2FAE60; }
+  .wizard-declined-box .icon{ background: rgba(192,69,58,.1); color: #C0453A; }
+  .wizard-error-msg{ color: #C0453A; font-size: .82rem; margin-top: 6px; display:none; }
+  .wizard-field.invalid input, .wizard-field.invalid select, .wizard-field.invalid textarea{ border-color: #C0453A; }
+  .wizard-field.invalid .wizard-error-msg{ display:block; }
+  .hp-field{ position:absolute; left:-9999px; top:-9999px; opacity:0; height:0; width:0; overflow:hidden; }
+
+  @media (max-width: 880px){
+    .wizard{ padding: 32px 22px; }
+  }
+
+  @media (max-width: 880px){
+    .footer-brand-line .footer-name{ white-space: normal; }
+
+    .contact-grid{ grid-template-columns: 1fr; }
+    .contact-card{ padding: 36px 28px; }
+    nav.links{
+      position: fixed;
+      top: 68px; left:0; right:0;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      align-items:flex-start;
+      padding: 18px 24px 22px;
+      gap: 14px;
+      display:none;
+    }
+    nav.links.open{ display:flex; }
+    .menu-toggle{
+      display:inline-flex;
+      background:none;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor:pointer;
+    }
+    .nav-inner{ flex-wrap: wrap; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .btn{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="assets/logo-icon.png" alt="Logo ESC" class="logo-icon"> ESC<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <nav class="links" id="navLinks">
+      <a href="index.html">Início</a>
+      <a href="quem-somos.html">Quem somos</a>
+      <a href="servicos.html">Nossos Serviços</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <a class="btn btn-amber" href="https://web.ucondo.com.br/mora.html?path=inicio.aspx&ct=1782408727808" target="_blank" rel="noopener">
+      Área do Condômino
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+    </a>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Solicitar Proposta</span>
+    <h1>Conte sobre o seu condomínio.</h1>
+    <p class="lead">Preencha o formulário abaixo e preparamos uma proposta personalizada, sem custo e sem compromisso.</p>
+  </div>
+</section>
+
+<section>
+<div class="wizard-wrap" id="wizardWrap">
+   <div class="wrap">
+    <div class="wizard" id="wizard">
+
+      <input type="text" name="hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="wizard-progress" id="progressBar">
+        <div class="bar" data-step="1"></div>
+        <div class="bar" data-step="2"></div>
+        <div class="bar" data-step="3"></div>
+        <div class="bar" data-step="4"></div>
+        <div class="bar" data-step="5"></div>
+      </div>
+
+      <!-- STEP 0: LGPD -->
+      <div class="wizard-step active" data-step="0">
+        <span class="wizard-step-label">Antes de começar</span>
+        <h2>Termo de Consentimento (LGPD)</h2>
+        <div class="wizard-lgpd-box">
+          <strong>TERMO DE CONSENTIMENTO E AVISO DE PRIVACIDADE (LGPD)</strong><br><br>
+          Nos termos da Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 - LGPD), informamos que os dados pessoais do solicitante e as informações estruturais do condomínio fornecidos neste formulário serão tratados com estrito sigilo e segurança, observando as seguintes diretrizes:<br><br>
+          <strong>1. Finalidade do Tratamento:</strong> os dados coletados serão utilizados exclusivamente para análise técnica preliminar, dimensionamento de escopo e elaboração da proposta comercial personalizada solicitada pelo usuário; identificação do solicitante e validação de seu vínculo com o condomínio; e contatos subsequentes por e-mail, telefone ou aplicativos de mensagem.<br><br>
+          <strong>2. Base Legal:</strong> procedimentos preliminares relacionados a contrato a pedido do titular (Art. 7º, V) e legítimo interesse do controlador em responder solicitações comerciais (Art. 7º, IX).<br><br>
+          <strong>3. Compartilhamento de Dados:</strong> os dados são mantidos sob sigilo e não são comercializados, cedidos ou compartilhados com terceiros para fins publicitários.<br><br>
+          <strong>4. Direitos do Titular:</strong> conforme Art. 18 da LGPD, você pode solicitar confirmação, acesso, correção ou eliminação dos seus dados a qualquer momento.<br><br>
+          <strong>5. Retenção dos Dados:</strong> as informações são armazenadas pelo período necessário à negociação. Caso não haja contratação, os dados são eliminados ou anonimizados.
+        </div>
+        <p style="font-size:.9rem; color:var(--ink-soft); margin-bottom:18px;">Ao <strong>concordar</strong>, você será direcionado ao preenchimento dos seus dados. Caso opte por <strong>não concordar</strong>, o formulário será encerrado sem coleta de informações.</p>
+        <div class="wizard-option-list">
+          <label class="wizard-option-item" id="lgpdYesLabel">
+            <input type="radio" name="lgpd" value="sim">
+            <span>Sim, concordo e desejo continuar</span>
+          </label>
+          <label class="wizard-option-item" id="lgpdNoLabel">
+            <input type="radio" name="lgpd" value="nao">
+            <span>Não concordo</span>
+          </label>
+        </div>
+        <div class="wizard-actions">
+          <span></span>
+          <button class="btn btn-amber" id="lgpdNextBtn" type="button" disabled>Continuar</button>
+        </div>
+      </div>
+
+      <!-- STEP 1: Solicitante -->
+      <div class="wizard-step" data-step="1">
+        <span class="wizard-step-label">Seção 1 de 4</span>
+        <h2>Informações do solicitante</h2>
+        <p style="color:var(--ink-soft); font-size:.95rem;">Conte-nos um pouco sobre você.</p>
+
+        <div class="wizard-field" data-required>
+          <label>Nome do síndico *</label>
+          <input type="text" name="nomeSindico">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Nº da unidade do síndico *</label>
+          <input type="text" name="unidadeSindico">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Nome do solicitante da proposta *</label>
+          <input type="text" name="nomeSolicitante">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Relação do solicitante com o condomínio *</label>
+          <select name="relacao" id="relacaoSelect">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="Síndico">Síndico</option>
+            <option value="Condômino">Condômino</option>
+            <option value="Funcionário">Funcionário</option>
+            <option value="Membro da Comissão Administrativa">Membro da Comissão Administrativa</option>
+            <option value="Membro do Conselho Fiscal">Membro do Conselho Fiscal</option>
+            <option value="Outros">Outros</option>
+          </select>
+          <div class="wizard-error-msg">Selecione uma opção</div>
+          <div class="wizard-outro-input" id="relacaoOutroWrap">
+            <input type="text" name="relacaoOutro" placeholder="Especifique">
+          </div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Telefone/WhatsApp *</label>
+          <input type="tel" name="telefone" placeholder="(91) 90000-0000">
+          <div class="hint">Informe o telefone com DDD</div>
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>E-mail para contato *</label>
+          <input type="email" name="email">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+
+        <div class="wizard-actions">
+          <button class="btn btn-outline" type="button" data-back>Voltar</button>
+          <button class="btn btn-amber" type="button" data-next>Continuar</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Condomínio -->
+      <div class="wizard-step" data-step="2">
+        <span class="wizard-step-label">Seção 2 de 4</span>
+        <h2>Informações do Condomínio</h2>
+        <p style="color:var(--ink-soft); font-size:.95rem;">Conte-nos um pouco sobre o seu condomínio.</p>
+
+        <div class="wizard-field" data-required>
+          <label>Nome do Condomínio *</label>
+          <input type="text" name="nomeCondominio">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Endereço do Condomínio *</label>
+          <input type="text" name="enderecoCondominio">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>O seu condomínio possui quantas torres/blocos? *</label>
+          <input type="text" name="torres">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Quantas unidades o seu condomínio possui por torre/bloco? *</label>
+          <input type="text" name="unidadesPorTorre">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Qual tipo de síndico o seu condomínio possui? *</label>
+          <select name="tipoSindico">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="Síndico Profissional">Síndico Profissional</option>
+            <option value="Síndico Morador">Síndico Morador</option>
+          </select>
+          <div class="wizard-error-msg">Selecione uma opção</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Qual é o perfil do condomínio? *</label>
+          <select name="perfilCondominio" id="perfilSelect">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="Residencial">Residencial</option>
+            <option value="Comercial">Comercial</option>
+            <option value="Misto">Misto</option>
+            <option value="Outro">Outro</option>
+          </select>
+          <div class="wizard-error-msg">Selecione uma opção</div>
+          <div class="wizard-outro-input" id="perfilOutroWrap">
+            <input type="text" name="perfilOutro" placeholder="Especifique">
+          </div>
+        </div>
+
+        <div class="wizard-actions">
+          <button class="btn btn-outline" type="button" data-back>Voltar</button>
+          <button class="btn btn-amber" type="button" data-next>Continuar</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Mais sobre o condomínio -->
+      <div class="wizard-step" data-step="3">
+        <span class="wizard-step-label">Seção 3 de 4</span>
+        <h2>Mais sobre o condomínio</h2>
+
+        <div class="wizard-field" data-required>
+          <label>Existe alguma empresa administrando seu condomínio atualmente? Se sim, qual? *</label>
+          <input type="text" name="administradoraAtual">
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Descreva a quantidade de funcionários por função no condomínio *</label>
+          <textarea name="funcionarios" placeholder="Exemplo: 1 zelador, 4 porteiros, 2 faxineiros."></textarea>
+          <div class="wizard-error-msg">Campo obrigatório</div>
+        </div>
+        <div class="wizard-field" data-required data-checkbox>
+          <label>Marque as áreas que o seu condomínio possui: *</label>
+          <div class="wizard-option-list">
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Piscina"><span>Piscina</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Churrasqueira"><span>Churrasqueira</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Salão de festas"><span>Salão de festas</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Salão gourmet"><span>Salão gourmet</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Academia"><span>Academia</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Quadra de esporte"><span>Quadra de esporte</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Sauna"><span>Sauna</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Playground"><span>Playground</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Jardim"><span>Jardim</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Não possui"><span>Não possui</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="areasLazer" value="Outro" data-toggle="areasOutroWrap"><span>Outro</span></label>
+          </div>
+          <div class="wizard-error-msg">Selecione ao menos uma opção</div>
+          <div class="wizard-outro-input" id="areasOutroWrap">
+            <input type="text" name="areasOutro" placeholder="Especifique">
+          </div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Qual é a média atual do índice de inadimplência? *</label>
+          <select name="inadimplencia">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="Até 10%">Até 10%</option>
+            <option value="De 11% a 20%">De 11% a 20%</option>
+            <option value="De 21% a 30%">De 21% a 30%</option>
+            <option value="Mais de 30%">Mais de 30%</option>
+            <option value="Sem inadimplência">Sem inadimplência</option>
+            <option value="Não sei informar">Não sei informar / Não tenho esse dado no momento</option>
+          </select>
+          <div class="wizard-error-msg">Selecione uma opção</div>
+        </div>
+
+        <div class="wizard-actions">
+          <button class="btn btn-outline" type="button" data-back>Voltar</button>
+          <button class="btn btn-amber" type="button" data-next>Continuar</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Complementares -->
+      <div class="wizard-step" data-step="4">
+        <span class="wizard-step-label">Seção 4 de 4</span>
+        <h2>Informações complementares</h2>
+
+        <div class="wizard-field">
+          <label>O que você planeja para o futuro do condomínio?</label>
+          <textarea name="planosFuturos"></textarea>
+        </div>
+        <div class="wizard-field" data-required data-checkbox>
+          <label>Quais serviços você tem interesse em contratar? *</label>
+          <div class="wizard-option-list">
+            <label class="wizard-option-item"><input type="checkbox" name="servicosInteresse" value="Assessoria administrativa"><span>Assessoria administrativa</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="servicosInteresse" value="Registro de convenção / Regimento interno"><span>Registro de convenção / Regimento interno</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="servicosInteresse" value="Administração completa / Gestão integrada"><span>Administração completa / Gestão integrada</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="servicosInteresse" value="Assessoria em assembleias e implantação de novos condomínios"><span>Assessoria em assembleias e implantação de novos condomínios</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="servicosInteresse" value="Aplicativo e tecnologia para o Condomínio"><span>Aplicativo e tecnologia para o Condomínio</span></label>
+          </div>
+          <div class="wizard-error-msg">Selecione ao menos uma opção</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Qual é o regime de contratação da equipe de apoio diário (zelador, portaria e limpeza)? *</label>
+          <select name="regimeContratacao">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="Funcionários próprios">Funcionários próprios</option>
+            <option value="Empresa terceirizada">Empresa terceirizada</option>
+            <option value="Mista">Mista (parte própria, parte terceirizada)</option>
+          </select>
+          <div class="wizard-error-msg">Selecione uma opção</div>
+        </div>
+        <div class="wizard-field" data-required>
+          <label>Para a nova proposta, qual modelo de contratação da equipe principal você prefere? *</label>
+          <select name="modeloPreferido">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="Manter o modelo atual">Manter o modelo atual do condomínio</option>
+            <option value="Equipe 100% própria">Mudar para equipe 100% própria</option>
+            <option value="Equipe 100% terceirizada">Mudar para equipe 100% terceirizada</option>
+            <option value="Modelo misto">Mudar para modelo misto (parte própria, parte terceirizada)</option>
+            <option value="Quero avaliar as opções">Quero avaliar as opções/Aceito sugestões</option>
+          </select>
+          <div class="wizard-error-msg">Selecione uma opção</div>
+        </div>
+        <div class="wizard-field" data-checkbox>
+          <label>Qual é o principal motivo para buscar uma nova solução de gestão neste momento?</label>
+          <div class="wizard-option-list">
+            <label class="wizard-option-item"><input type="checkbox" name="motivo" value="Falta de transparência na prestação de contas"><span>Falta de transparência na prestação de contas</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="motivo" value="Atendimento demorado / Falta de suporte"><span>Atendimento demorado / Falta de suporte ao síndico e moradores</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="motivo" value="Problemas com a equipe ou funcionários"><span>Problemas com a equipe ou funcionários atuais</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="motivo" value="Alto índice de inadimplência sem resolução"><span>Alto índice de inadimplência sem resolução</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="motivo" value="Condomínio novo, precisa ser implantado (AGI)"><span>O condomínio é novo e precisa ser implantado do zero (AGI)</span></label>
+            <label class="wizard-option-item"><input type="checkbox" name="motivo" value="Outro" data-toggle="motivoOutroWrap"><span>Outro</span></label>
+          </div>
+          <div class="wizard-outro-input" id="motivoOutroWrap">
+            <input type="text" name="motivoOutro" placeholder="Especifique">
+          </div>
+        </div>
+
+        <div class="wizard-actions">
+          <button class="btn btn-outline" type="button" data-back>Voltar</button>
+          <button class="btn btn-amber" type="button" id="submitBtn">Enviar solicitação</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="wizard-step" data-step="success">
+        <div class="wizard-success-box">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <h2>Solicitação enviada!</h2>
+          <p style="color:var(--ink-soft);">Recebemos suas informações e vamos preparar uma proposta personalizada. Retornamos o contato em até 1 dia útil.</p>
+        </div>
+      </div>
+
+      <!-- DECLINED -->
+      <div class="wizard-step" data-step="declined">
+        <div class="wizard-declined-box">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <h2>Tudo bem.</h2>
+          <p style="color:var(--ink-soft);">O formulário foi encerrado sem coleta de nenhuma informação. Se mudar de ideia, é só recarregar esta página.</p>
+        </div>
+      </div>
+
+    </div>
+   </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-line">
+          <span class="logo-mark">ESC<span>.</span></span>
+          <div class="footer-text-stack">
+            <span class="footer-name">Escritório de Soluções Condominiais</span>
+            <p class="footer-slogan">Seu condomínio em boas mãos.</p>
+          </div>
+        </div>
+        <p class="footer-desc">Administração financeira, contábil e documental para o seu condomínio.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="index.html">Início</a>
+          <a href="quem-somos.html">Quem somos</a>
+          <a href="servicos.html">Nossos Serviços</a>
+          <a href="contato.html">Contato</a>
+        </div>
+        <div class="footer-col">
+          <h4>Cliente</h4>
+          <a href="https://web.ucondo.com.br/mora.html?path=inicio.aspx&ct=1782408727808" target="_blank" rel="noopener">Área do Condômino</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ESC. Escritório de Soluções Condominiais</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+<script>
+(function(){
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbwDdYXiCdbUs2EzBCo7XTz8tzxsW5MDc7uFU8qiXDjFVjOrBWbbRywl2HLfxBOelA5gQw/exec";
+  const wizardWrap = document.getElementById('wizardWrap');
+  const wizard = document.getElementById('wizard');
+  const steps = Array.from(wizard.querySelectorAll('.wizard-step'));
+  const progressBar = document.getElementById('progressBar');
+  let currentStep = 0;
+
+  function showStep(stepKey){
+    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(stepKey)));
+    if (typeof stepKey === 'number'){
+      progressBar.querySelectorAll('.bar').forEach((b,i) => {
+        b.classList.toggle('done', i < stepKey);
+      });
+      progressBar.style.display = 'flex';
+    } else {
+      progressBar.style.display = 'none';
+    }
+    wizardWrap.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  const lgpdInputs = wizard.querySelectorAll('input[name="lgpd"]');
+  const lgpdNextBtn = document.getElementById('lgpdNextBtn');
+  lgpdInputs.forEach(inp => {
+    inp.addEventListener('change', () => {
+      lgpdNextBtn.disabled = false;
+      wizard.querySelectorAll('#lgpdYesLabel, #lgpdNoLabel').forEach(l => l.classList.remove('checked'));
+      inp.closest('.wizard-option-item').classList.add('checked');
+    });
+  });
+  lgpdNextBtn.addEventListener('click', () => {
+    const val = wizard.querySelector('input[name="lgpd"]:checked').value;
+    if (val === 'nao'){
+      fetch(ENDPOINT, { method:'POST', mode:'no-cors', body: new URLSearchParams({status:'recusou'}) });
+      showStep('declined');
+    } else {
+      currentStep = 1;
+      showStep(1);
+    }
+  });
+
+  wizard.querySelectorAll('.wizard-option-item input').forEach(inp => {
+    inp.addEventListener('change', () => {
+      if (inp.type === 'radio'){
+        wizard.querySelectorAll(`input[name="${inp.name}"]`).forEach(r => r.closest('.wizard-option-item').classList.remove('checked'));
+      }
+      inp.closest('.wizard-option-item').classList.toggle('checked', inp.checked);
+    });
+  });
+
+  wizard.querySelectorAll('[data-toggle]').forEach(inp => {
+    inp.addEventListener('change', () => {
+      const wrap = document.getElementById(inp.dataset.toggle);
+      wrap.classList.toggle('show', inp.checked);
+    });
+  });
+
+  const relacaoSelect = document.getElementById('relacaoSelect');
+  if (relacaoSelect){
+    relacaoSelect.addEventListener('change', () => {
+      document.getElementById('relacaoOutroWrap').classList.toggle('show', relacaoSelect.value === 'Outros');
+    });
+  }
+  const perfilSelect = document.getElementById('perfilSelect');
+  if (perfilSelect){
+    perfilSelect.addEventListener('change', () => {
+      document.getElementById('perfilOutroWrap').classList.toggle('show', perfilSelect.value === 'Outro');
+    });
+  }
+
+  const telefoneInput = wizard.querySelector('input[name="telefone"]');
+  if (telefoneInput){
+    telefoneInput.setAttribute('inputmode', 'numeric');
+    telefoneInput.setAttribute('maxlength', '15');
+    telefoneInput.addEventListener('input', () => {
+      let v = telefoneInput.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length > 10){
+        v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+      } else if (v.length > 6){
+        v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+      } else if (v.length > 2){
+        v = v.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+      } else if (v.length > 0){
+        v = v.replace(/(\d{0,2})/, '($1');
+      }
+      telefoneInput.value = v;
+    });
+  }
+
+  function validateStep(stepEl){
+    let valid = true;
+    stepEl.querySelectorAll('.wizard-field[data-required]').forEach(field => {
+      field.classList.remove('invalid');
+      if (field.dataset.checkbox !== undefined){
+        const name = field.querySelector('input[type="checkbox"]').name;
+        const checked = stepEl.querySelectorAll(`input[name="${name}"]:checked`);
+        if (checked.length === 0){
+          field.classList.add('invalid');
+          valid = false;
+        }
+      } else {
+        const input = field.querySelector('input, textarea, select');
+        if (input && !input.value.trim()){
+          field.classList.add('invalid');
+          valid = false;
+        }
+      }
+    });
+    return valid;
+  }
+
+  wizard.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const stepEl = steps.find(s => s.dataset.step === String(currentStep));
+      if (!validateStep(stepEl)) return;
+      currentStep++;
+      showStep(currentStep);
+    });
+  });
+
+  wizard.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentStep--;
+      showStep(currentStep);
+    });
+  });
+
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const stepEl = steps.find(s => s.dataset.step === String(currentStep));
+    if (!validateStep(stepEl)) return;
+
+    const hp = wizard.querySelector('input[name="hp"]');
+    if (hp && hp.value){
+      showStep('success');
+      return;
+    }
+
+    const data = new URLSearchParams();
+    wizard.querySelectorAll('input, textarea, select').forEach(inp => {
+      if (inp.name === 'lgpd' || inp.name === 'hp') return;
+      if (inp.type === 'checkbox'){
+        if (inp.checked) data.append(inp.name, (data.get(inp.name) ? data.get(inp.name) + ', ' : '') + inp.value);
+      } else if (inp.type === 'radio'){
+        if (inp.checked) data.set(inp.name, inp.value);
+      } else {
+        if (inp.value) data.set(inp.name, inp.value);
+      }
+    });
+
+    fetch(ENDPOINT, { method:'POST', mode:'no-cors', body: data })
+      .then(() => showStep('success'))
+      .catch(() => showStep('success'));
+  });
+})();
+</script>
+
+</body>
+</html>
