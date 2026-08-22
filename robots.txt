@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://escondominiais.com.br/sitemap.xml
